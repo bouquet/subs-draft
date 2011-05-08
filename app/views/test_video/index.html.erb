@@ -1,0 +1,34 @@
+<h2>测试视频字幕</h2>
+<div>
+  <video id="video" controls autoplay="autoplay">
+    <source src='/test.mp4'>
+  </video>
+  <div id='subs_container'>
+  </div>
+</div>
+<table>
+  <%Sub.all.each do |sub|%>
+    <tr>
+      <td><a href="#" class="btn_from" data-time="<%=sub.from %>"><%=sub.from%></a></td>
+      <td><a href="#" class="btn_to" data-time="<%=sub.to %>"><%=sub.to%></a></td>
+      <td><span class='subs_text'><%=sub.subs_text %></span></td>
+    </tr>
+  <%end%>
+</table>
+<script type='text/javascript'>
+  jQuery(function($){
+      //var the_video = $('#video');
+      var the_video = document.getElementsByTagName("video")[0]; 
+      console.log(the_video);
+      $('.btn_from').click(function(){
+        var from_time=$(this).data('time');
+        //alert(from_time);
+        var start = parseFloat(from_time);
+        the_video.currentTime=start;
+        //the_video.pause();
+        //the_video.currentTime=100000000;
+        //alert(the_video.currentTime);
+        the_video.play();
+        });
+      });
+</script>

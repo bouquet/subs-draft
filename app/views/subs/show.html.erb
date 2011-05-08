@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>From:</b>
+  <%= @sub.from %>
+</p>
+
+<p>
+  <b>To:</b>
+  <%= @sub.to %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @sub.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_sub_path(@sub) %> |
+<%= link_to 'Back', subs_path %>
